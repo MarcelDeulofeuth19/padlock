@@ -1,0 +1,11 @@
+services:
+  padlock:
+    build: .
+    container_name: padlock_api
+    ports:
+      - "8004:8004"
+    env_file:
+      - ./app/.env
+    volumes:
+      - ./credentials:/app/credentials:ro
+    restart: unless-stopped
